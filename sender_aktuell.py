@@ -1,3 +1,7 @@
+import network
+import espnow
+import json
+
 class Sender:
 
     #def __init__(self, start_pin)->None:

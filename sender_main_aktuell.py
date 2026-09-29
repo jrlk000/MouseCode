@@ -21,6 +21,11 @@ LOW_TRIGGER = esp32.WAKEUP_ALL_LOW
 # Empfänger: Rythmus von 200 ms mit wach: 150 ms, 1800 ms
 SENDE_ZEIT = 2.2 * 1e3
 
+"""
+Akku schonender Sende Rythmus: 
+
+"""
+
 try:
     # ---- Sender Initialisierung ----
     print("Initialisiere Sender...")
@@ -45,6 +50,17 @@ try:
     esp32.wake_on_gpio([WAKE_PIN], LOW_TRIGGER)
     WAKE_PIN.init(hold=True)
     esp32.gpio_deep_sleep_hold(True)
+
+    """
+    Deinitialisieren des Wlans
+    """
+
+    """
+    Explicites Ausschalten der einzelnen aktiven Komponenten des Base Boards
+    
+    """
+
+
 
     time.sleep_ms(500)
     machine.deepsleep()
